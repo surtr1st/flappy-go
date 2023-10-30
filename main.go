@@ -18,7 +18,7 @@ func main() {
 		if game.GameOver {
 			break
 		}
-		game.Update()
+		go game.Update()
 		game.Draw()
 	}
 
