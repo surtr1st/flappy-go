@@ -21,7 +21,7 @@ func (g *Game) Init() {
 
 	g.Bird.Size = r1.Vector2{X: 25.0, Y: 25.0}
 	g.Bird.Position = r1.Vector2{X: float32(centered_x), Y: float32(centered_y)}
-	g.Bird.Speed = r1.Vector2{X: 0.5, Y: 0.5}
+	g.Bird.Speed = 0.5
 	g.Bird.Color = r1.LightGray
 	g.Bird.Flapping = -5
 	g.Bird.Flapped = true
@@ -40,16 +40,16 @@ func (g *Game) Update() {
 		}
 
 		t := math.Pow(float64(g.FrameCounter), 2)
-		velocity := float32(0.001 * 9.8 * t)
-		originalSpeed := g.Bird.Speed.Y
-		g.Bird.Position.Y += originalSpeed + velocity
+		distance := float32(0.001 * 9.8 * t)
+		originalSpeed := g.Bird.Speed
+		g.Bird.Position.Y += originalSpeed + distance
 
 		if r1.IsKeyPressed(r1.KeyQ) {
 			g.GameOver = true
 		}
 
 		if r1.IsKeyPressed(r1.KeySpace) || r1.IsMouseButtonPressed(r1.MouseLeftButton) {
-			g.Bird.Speed.Y = float32(g.Bird.Flapping)
+			g.Bird.Speed = float32(g.Bird.Flapping)
 			g.Bird.Position.Y += originalSpeed
 			g.FrameCounter = 0.0
 		}
