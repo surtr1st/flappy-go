@@ -1,20 +1,25 @@
 package main
 
-import r1 "github.com/gen2brain/raylib-go/raylib"
+import (
+	i "flappy/internal"
 
-var (
-	TITLE      = "Flappy"
-	WIDTH      = int32(800)
-	HEIGHT     = int32(600)
-	TARGET_FPS = int32(60)
+	r1 "github.com/gen2brain/raylib-go/raylib"
 )
 
 func main() {
-	r1.InitWindow(WIDTH, HEIGHT, TITLE)
+	r1.InitWindow(i.WIDTH, i.HEIGHT, i.TITLE)
 
-	r1.SetTargetFPS(TARGET_FPS)
+	r1.SetTargetFPS(i.TARGET_FPS)
+
+	game := i.Game{}
+	game.Init()
 
 	for !r1.WindowShouldClose() {
+		if game.GameOver {
+			break
+		}
+		game.Update()
+		game.Draw()
 	}
 
 	r1.CloseWindow()
