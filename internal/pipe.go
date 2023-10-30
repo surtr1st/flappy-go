@@ -1,9 +1,9 @@
 package internal
 
-import r1 "github.com/gen2brain/raylib-go/raylib"
+import rl "github.com/gen2brain/raylib-go/raylib"
 
 type Pipe struct {
-	Size     r1.Vector2
-	Position r1.Vector2
-	Color    r1.Color
+	Size     rl.Vector2
+	Position rl.Vector2
+	Color    rl.Color
 }

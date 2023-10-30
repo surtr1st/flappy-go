@@ -3,18 +3,18 @@ package main
 import (
 	i "flappy/internal"
 
-	r1 "github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func main() {
-	r1.InitWindow(i.WIDTH, i.HEIGHT, i.TITLE)
+	rl.InitWindow(i.WIDTH, i.HEIGHT, i.TITLE)
 
-	r1.SetTargetFPS(i.TARGET_FPS)
+	rl.SetTargetFPS(i.TARGET_FPS)
 
 	game := i.Game{}
 	game.Init()
 
-	for !r1.WindowShouldClose() {
+	for !rl.WindowShouldClose() {
 		if game.GameOver {
 			break
 		}
@@ -22,5 +22,5 @@ func main() {
 		game.Draw()
 	}
 
-	r1.CloseWindow()
+	rl.CloseWindow()
 }

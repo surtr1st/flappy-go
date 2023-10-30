@@ -4,7 +4,7 @@ import (
 	"math"
 	"time"
 
-	r1 "github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 type Game struct {
@@ -20,10 +20,10 @@ func (g *Game) Init() {
 	centered_x := (WIDTH / 2) - BIRD_SIZE
 	centered_y := (HEIGHT / 2) - BIRD_SIZE
 
-	g.Bird.Size = r1.Vector2{X: float32(BIRD_SIZE), Y: float32(BIRD_SIZE)}
-	g.Bird.Position = r1.Vector2{X: float32(centered_x), Y: float32(centered_y)}
+	g.Bird.Size = rl.NewVector2(float32(BIRD_SIZE), float32(BIRD_SIZE))
+	g.Bird.Position = rl.NewVector2(float32(centered_x), float32(centered_y))
 	g.Bird.Speed = 1.5
-	g.Bird.Color = r1.LightGray
+	g.Bird.Color = rl.LightGray
 	g.Bird.Flapping = 0.7
 	g.FrameCounter = 1.0
 
@@ -43,11 +43,11 @@ func (g *Game) Update() {
 		distance := 0.5 * G * t
 		g.Bird.Position.Y += (g.Bird.Speed + distance) * 0.0010
 
-		if r1.IsKeyPressed(r1.KeyQ) {
+		if rl.IsKeyPressed(rl.KeyQ) {
 			g.GameOver = true
 		}
 
-		if r1.IsKeyPressed(r1.KeySpace) || r1.IsMouseButtonPressed(r1.MouseLeftButton) {
+		if rl.IsKeyPressed(rl.KeySpace) || rl.IsMouseButtonPressed(rl.MouseLeftButton) {
 			g.FrameCounter = 0.0
 
 			for i := 1.2; i < 12.0; i += 1.2 {
@@ -61,10 +61,10 @@ func (g *Game) Update() {
 }
 
 func (g *Game) Draw() {
-	r1.BeginDrawing()
+	rl.BeginDrawing()
 
-	r1.ClearBackground(r1.Color{R: 0, G: 0, B: 0, A: 1})
-	r1.DrawRectangleV(g.Bird.Position, g.Bird.Size, g.Bird.Color)
+	rl.ClearBackground(rl.Color{R: 0, G: 0, B: 0, A: 1})
+	rl.DrawRectangleV(g.Bird.Position, g.Bird.Size, g.Bird.Color)
 
-	r1.EndDrawing()
+	rl.EndDrawing()
 }
