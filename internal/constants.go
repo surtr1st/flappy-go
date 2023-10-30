@@ -7,4 +7,5 @@ var (
 	TARGET_FPS = int32(60)
 	G          = float32(9.8)
 	BIRD_SIZE  = int32(25)
+	MAX_PIPES  = int32(50)
 )
