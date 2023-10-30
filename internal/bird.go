@@ -7,6 +7,5 @@ type Bird struct {
 	Position r1.Vector2
 	Color    r1.Color
 	Speed    float32
-	Flapping int32
-	Flapped  bool
+	Flapping float32
 }
