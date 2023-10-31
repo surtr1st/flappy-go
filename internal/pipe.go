@@ -3,6 +3,7 @@ package internal
 import rl "github.com/gen2brain/raylib-go/raylib"
 
 type Pipe struct {
-	Rec   rl.Rectangle
-	Color rl.Color
+	Rec    rl.Rectangle
+	Color  rl.Color
+	Active bool
 }
