@@ -9,15 +9,14 @@ import (
 )
 
 type Game struct {
-	Bird  Bird
-	Pipes []Pipe
+	Bird     Bird
+	Pipes    []Pipe
+	PipesPos []rl.Vector2
 
 	Camera       rl.Camera2D
 	Score        int32
 	GameOver     bool
-	Pause        bool
 	FrameCounter float32
-	PipesPos     []rl.Vector2
 }
 
 func (g *Game) Init() {
@@ -57,7 +56,6 @@ func (g *Game) Init() {
 
 	g.Score = 0
 	g.GameOver = false
-	g.Pause = false
 }
 
 func (g *Game) Update() {
