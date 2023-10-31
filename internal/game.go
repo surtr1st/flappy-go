@@ -94,7 +94,6 @@ func (g *Game) Update() {
 			if rl.CheckCollisionRecs(rl.NewRectangle(g.Bird.Position.X, g.Bird.Position.Y, float32(BIRD_SIZE), float32(BIRD_SIZE)), g.Pipes[i].Rec) {
 				g.GameOver = true
 			} else if (g.PipesPos[i/2].X < g.Bird.Position.X-float32(BIRD_SIZE)) && g.Pipes[i/2].Active && !g.GameOver {
-				// Score point
 				g.Score += 1
 				g.Pipes[i/2].Active = false
 			}
